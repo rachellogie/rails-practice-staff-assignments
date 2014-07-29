@@ -16,6 +16,7 @@ Show page for <%= "#{@person.title} #{@person.first_name} #{@person.last_name}" 
     <tr>
       <td><%= assignment.location.name if assignment.location %></td>
       <td><%= assignment.role %></td>
+      <td><%= link_to 'Edit Assignment', edit_person_assignment_path(@person, assignment) %></td>
     </tr>
 
 

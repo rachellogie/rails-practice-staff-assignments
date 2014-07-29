@@ -34,7 +34,15 @@ feature 'assignments' do
     click_on 'Create Assignment'
 
     expect(page).to have_content 'You already have this assignment!'
+  end
 
+  scenario 'user can edit assignments' do
+    @person.assignments.create!(location_id: "1", role: "director")
+    visit person_path(@person)
+    click_on 'Edit Assignment'
+    fill_in 'Role', with: 'cuteness'
+    click_on 'Update Assignment'
+    expect(page).to have_content 'cuteness'
   end
 end
 

@@ -1,0 +1,22 @@
+<p>Edit <%= @person.first_name %>'s assignment</p>
+
+<% @assignment.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+
+
+<%= form_for([@person, @assignment]) do |f| %>
+  <p>
+    <%= f.label :location %>
+    <%= collection_select(:location, :place, @locations, :id, :name) %>
+  </p>
+
+  <p>
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

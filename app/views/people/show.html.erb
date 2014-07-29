@@ -17,9 +17,8 @@ Show page for <%= "#{@person.title} #{@person.first_name} #{@person.last_name}" 
       <td><%= assignment.location.name if assignment.location %></td>
       <td><%= assignment.role %></td>
       <td><%= link_to 'Edit Assignment', edit_person_assignment_path(@person, assignment) %></td>
+      <td><%= link_to 'Delete Assignment', person_assignment_path(@person, assignment), method: :delete, data: {confirm: "Are you sure?"} %></td>
     </tr>
-
-
   <% end %>
 </table>
 

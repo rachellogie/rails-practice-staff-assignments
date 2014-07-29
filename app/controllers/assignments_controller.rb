@@ -38,6 +38,12 @@ class AssignmentsController < ApplicationController
     end
   end
 
+  def destroy
+    @person = Person.find(params[:person_id])
+    @person.assignments.find(params[:id]).destroy
+    redirect_to person_path(@person)
+  end
+
   private
 
   def assignment_params

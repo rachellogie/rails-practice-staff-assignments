@@ -20,6 +20,22 @@ feature 'assignments' do
     expect(page).to have_content 'Manager'
     expect(page).to have_content 'Midwest'
   end
+
+  scenario 'user cannot assign a duplicate location/role to a person' do
+    visit person_path(@person)
+    click_on 'Add Location'
+    select 'Midwest', from: 'location[place]'
+    fill_in 'Role', with: 'Manager'
+    click_on 'Create Assignment'
+
+    click_on 'Add Location'
+    select 'Midwest', from: 'location[place]'
+    fill_in 'Role', with: 'Manager'
+    click_on 'Create Assignment'
+
+    expect(page).to have_content 'You already have this assignment!'
+
+  end
 end
 
 

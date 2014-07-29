@@ -1,0 +1,18 @@
+<p>Assign <%= @person.first_name %> to a location</p>
+
+
+<%= form_for([@person, @assignment]) do |f| %>
+  <p>
+    <%= f.label :location %>
+    <%= collection_select(:location, :place, @locations, :id, :name) %>
+  </p>
+
+  <p>
+    <%= f.label :role %>
+    <%= f.text_field :role %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

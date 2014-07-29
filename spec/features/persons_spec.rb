@@ -4,7 +4,7 @@ feature 'persons' do
 
   before do
     create_user
-    create_person
+    @person = create_person
     sign_in_user
   end
 
@@ -27,4 +27,5 @@ feature 'persons' do
     click_on 'Create Person'
     expect(page).to have_content "First name can't be blank if title is blank and vice versa."
   end
+
 end

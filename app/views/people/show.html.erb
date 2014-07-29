@@ -1,3 +1,24 @@
 Show page for <%= "#{@person.title} #{@person.first_name} #{@person.last_name}" %>
+<p>
+  <%= link_to 'Edit', edit_person_path(@person) %>
+</p>
+<p>
+  <%= link_to 'Add Location', new_person_assignment_path(@person) %>
+</p>
 
-<%= link_to 'Edit', edit_person_path(@person) %>
+<p>Locations</p>
+<table>
+  <tr>
+    <th>Location</th>
+    <th>Role</th>
+  </tr>
+  <% @assignments.each do |assignment| %>
+    <tr>
+      <td><%= assignment.location.name if assignment.location %></td>
+      <td><%= assignment.role %></td>
+    </tr>
+
+
+  <% end %>
+</table>
+

@@ -19,6 +19,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find(params[:id])
+    @assignments = @person.assignments
   end
 
   def edit
